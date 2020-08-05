@@ -43,7 +43,7 @@ printf("_______________\n_______________\n\n \n \n");
 }
 }
 void singledesign(){
-float a,b,c,d,As,Mu,fu,fy,t,fs;char flag1,flag2;
+float a,b,c,d,As,Mu,fu,fy,t,fs;float flag1,flag2;
 printf("please enter Moment capacity(N.mm) \n");
 scanf(" %f",&Mu);
 printf("please enter steel yield stress(N/mm^2) \n");
@@ -53,10 +53,10 @@ scanf(" %f",&fu);
 printf("please enter beam width(mm) \n");
 scanf(" %f",&b);
 printf("Is there any predetermined properties \n (As or beam depth) \n if yes enter (1) if no enter (0) \n");
-scanf(" %c",&flag1);
+scanf(" %f",&flag1);
 if (flag1 ==1){
 printf("for As enter 1 for beam depth enter 2");
-scanf("%c ", &flag2);
+scanf("%f ", &flag2);
 if (flag2 ==1){
 printf("please enter reinforcement steel area (mm^2)");
 scanf("%f", &As);
@@ -67,15 +67,15 @@ printf(" beam depth= %f",t);
 printf("beam width= %f",b);
 printf("_______________\n_______________\n\n \n \n");
 }
-/*else if (flag2 ==2){
+else if (flag2 ==2){
 printf("please enter beam depth (mm)");
 scanf("%f", &t);
 d=t-50;
-As=(-As*fy/1.15 +sqrt((As*fy/1.15)^2-4*-3*1.5*(fy^2)*-Mu/(2*b*fu*1.15^2)))/(2*-3*1.5*(fy^2)/(2*b*fu*1.15^2));
+As=(-As*fy/1.15 +sqrt((As*fy/1.15)*(As*fy/1.15)-4*-3*1.5*(fy*fy)*-Mu/(2*b*fu*1.15*1.15)))/(2*-3*1.5*(fy*fy)/(2*b*fu*1.15*1.15));
 printf("_______________\n_______________\n\n design results: \n \n");
-printf("As= %f , beam depth= %f, beam width= %f",As,t,b;
+printf("As= %f , beam depth= %f, beam width= %f",As,t,b);
 printf("_______________\n_______________\n\n \n \n");
-}*/}
+}}
 else if (flag1 ==0){
 As=0.11*sqrt(Mu*b/fy);a=3*1.5*As*fy/(2*1.15*b*fu);d=1.15*Mu/(As*fy)+a/2;t=d+50;
 printf("_______________\n_______________\n\n design results: \n \n");
@@ -86,6 +86,6 @@ printf("_______________\n_______________\n\n \n \n");
 }
 }
 
-void main{
+void main(){
 singledesign();
 }
